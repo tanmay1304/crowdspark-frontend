@@ -6,7 +6,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api": "http://localhost:5050",
+      "/api": {
+        target: "https://crowdspark-backend-production.up.railway.app",
+        changeOrigin: true,
+        secure: true,
+      },
     },
   },
 });
